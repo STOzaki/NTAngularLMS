@@ -14,9 +14,7 @@ export const environment = {
   get_all_loans: '/loans',
   deleteAuthor: '/deleteAuthor/',
   get_all_authors: '/authors',
-  single_author: '/author',
-  get_all_branches: '/branches',
-  single_branch: '/branch'
+  single_author: '/author'
 };
 
 /*

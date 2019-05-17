@@ -6,7 +6,6 @@ import { BorrowersComponent } from './admin/borrowers/borrowers.component';
 import { DueDateComponent } from './admin/due-date/due-date.component';
 import { BorrowersLoanComponent } from './admin/due-date/borrowers-loan/borrowers-loan.component';
 import { AuthorsComponent } from './admin/authors/authors.component';
-import { BranchesComponent} from './admin/branches/branches.component';
 
 const routes: Routes = [
   {
@@ -33,10 +32,6 @@ const routes: Routes = [
       {
         path: 'authors',
         component: AuthorsComponent
-      },
-      {
-        path: 'branches',
-        component: BranchesComponent
       }
     ]
   }

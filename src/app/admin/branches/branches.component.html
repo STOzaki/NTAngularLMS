@@ -1,35 +1,3 @@
-<div class="adminTable table-responsive">
-  <div class="table-title">
-    <h3>Library Branches</h3>
-    <button type="button" class="addButton" (click)="openAddModal()">
-        <i class="material-icons">add</i>
-        Add New
-      </button>
-    </div>
-
-    <table class="table table-hover table-bordered" id="branchesTable">
-      <thead>
-        <tr>
-          <th scope="col">Branch ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Address</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let branch of branches">
-          <td>{{branch.id}}</td>
-          <td>{{branch.name}}</td>
-          <td>{{branch.address}}</td>
-          <td>
-              <a class="edit" (click)="showEditForm(branch)" title="Edit Author" data-toggle="tooltip">
-                <i class="material-icons">edit</i>
-              </a>
-              <a class="delete" (click)="confirmDelete(branch)" title="Delete Author" data-toggle="tooltip">
-                <i class="material-icons">delete</i>
-              </a>
-            </td>
-            </tr>
-      </tbody>
-    </table>
-</div>
+<p>
+  branches works!
+</p>

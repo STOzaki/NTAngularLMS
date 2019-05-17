@@ -28,9 +28,6 @@ import { BorrowersLoanComponent } from './admin/due-date/borrowers-loan/borrower
 import { NewAuthorComponent } from './admin/authors/new/new.component';
 import { AuthorEditComponent } from './admin/authors/edit/edit.component';
 import { AuthorDeleteComponent } from './admin/authors/delete/delete.component';
-import { NewBranchComponent } from './admin/branches/new/new.component';
-import { BranchEditComponent } from './admin/branches/edit/edit.component';
-import { BranchDeleteComponent } from './admin/branches/delete/delete.component';
 
 @NgModule({
   declarations: [
@@ -56,18 +53,12 @@ import { BranchDeleteComponent } from './admin/branches/delete/delete.component'
     BorrowersLoanComponent,
     NewAuthorComponent,
     AuthorEditComponent,
-    AuthorDeleteComponent,
-    NewBranchComponent,
-    BranchEditComponent,
-    BranchDeleteComponent
+    AuthorDeleteComponent
   ],
   entryComponents: [
     NewAuthorComponent,
     AuthorEditComponent,
-    AuthorDeleteComponent,
-    NewBranchComponent,
-    BranchEditComponent,
-    BranchDeleteComponent
+    AuthorDeleteComponent
   ],
   imports: [
     BrowserModule,
