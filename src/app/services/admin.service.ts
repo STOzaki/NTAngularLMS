@@ -37,7 +37,8 @@ export class AdminService {
         name:body.name,
         address:body.address,
         phone:body.address
-      }
+      },
+      {headers: {'Content-Type': 'application/json'}}
     );
   }
 

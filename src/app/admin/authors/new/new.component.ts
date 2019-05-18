@@ -29,7 +29,8 @@ export class NewAuthorComponent implements OnInit {
       return false;
     }
     return this.http.post(environment.api_endpoint + environment.single_author,
-      new HttpParams().set('name', this.currentAuthorName)).subscribe((res) =>
+      JSON.stringify({name: this.currentAuthorName}),
+      {headers: {'Content-Type': 'application/json'}}).subscribe((res) =>
         this.activeModal.close(res), (err) => console.log(err));
   }
 }
