@@ -80,6 +80,7 @@ export class BooksComponent implements OnInit {
     this.adminService.getAllBooks('').subscribe(res => {
       this.books = res;
       this.booksSize = this.books.length;
+      this.setPage(1);
     });
   }
 
