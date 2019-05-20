@@ -27,7 +27,7 @@ export class NewBranchComponent implements OnInit {
       return false;
     }
     return this.http.post(environment.api_endpoint + environment.single_branch,
-      JSON.stringify({name: this.branchName, address: this.branchAddress}),
+      {name: this.branchName, address: this.branchAddress},
       {headers: {'Content-Type': 'application/json'}}).subscribe((res) =>
         this.activeModal.close(res), console.log);
   }
