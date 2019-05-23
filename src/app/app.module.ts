@@ -15,9 +15,17 @@ import { BranchesComponent } from './admin/branches/branches.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { DueDateComponent } from './admin/due-date/due-date.component';
 import { PublishersComponent } from './admin/publishers/publishers.component';
+
 import { BorrowerComponent } from './borrower/borrower.component';
 import { CheckoutComponent } from './borrower/checkout/checkout.component';
 import { ReturnComponent } from './borrower/return/return.component';
+import { BorrowerBooksComponent } from './borrower/books/books.component';
+import { BorrowerBranchesComponent } from './borrower/branches/branches.component';
+import { BorrowerDashboardComponent } from './borrower/dashboard/dashboard.component';
+import { BorrowerLayoutComponent } from './borrower/layout/layout.component';
+import { BorrowerHeaderComponent } from './borrower/layout/header/header.component';
+import { BorrowerLoginComponent } from './borrower/login/login.component';
+
 import { LibrarianComponent } from './librarian/librarian.component';
 import { CopiesComponent } from './librarian/copies/copies.component';
 import { LoginComponent } from './admin/login/login.component';
@@ -60,7 +68,13 @@ import { PagerService } from './service/pager.service';
     AuthorDeleteComponent,
     NewBranchComponent,
     BranchEditComponent,
-    BranchDeleteComponent
+    BranchDeleteComponent,
+    BorrowerBooksComponent,
+    BorrowerBranchesComponent,
+    BorrowerDashboardComponent,
+    BorrowerLayoutComponent,
+    BorrowerHeaderComponent,
+    BorrowerLoginComponent
   ],
   entryComponents: [
     NewAuthorComponent,
