@@ -28,6 +28,11 @@ import { BorrowerLoginComponent } from './borrower/login/login.component';
 
 import { LibrarianComponent } from './librarian/librarian.component';
 import { CopiesComponent } from './librarian/copies/copies.component';
+import { LibrarianBranchesComponent } from './librarian/branches/branches.component';
+import { LibrarianLayoutComponent } from './librarian/layout/layout.component';
+import { LibrarianHeaderComponent } from './librarian/layout/header/header.component';
+import { LibrarianLoginComponent } from './librarian/login/login.component';
+
 import { LoginComponent } from './admin/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -74,7 +79,11 @@ import { PagerService } from './service/pager.service';
     BorrowerDashboardComponent,
     BorrowerLayoutComponent,
     BorrowerHeaderComponent,
-    BorrowerLoginComponent
+    BorrowerLoginComponent,
+    LibrarianBranchesComponent,
+    LibrarianLayoutComponent,
+    LibrarianHeaderComponent,
+    LibrarianLoginComponent
   ],
   entryComponents: [
     NewAuthorComponent,
