@@ -9,7 +9,6 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./new.component.css']
 })
 export class NewBranchComponent implements OnInit {
-
   constructor(private http: HttpClient, public activeModal: NgbActiveModal) {}
 
   branchName: string;
@@ -26,9 +25,12 @@ export class NewBranchComponent implements OnInit {
       // TODO: show error in form
       return false;
     }
-    return this.http.post(environment.api_endpoint + environment.single_branch,
-      {name: this.branchName, address: this.branchAddress},
-      {headers: {'Content-Type': 'application/json'}}).subscribe((res) =>
-        this.activeModal.close(res), console.log);
+    return this.http
+      .post(
+        environment.api_endpoint + environment.single_branch,
+        { name: this.branchName, address: this.branchAddress },
+        { headers: { 'Content-Type': 'application/json' } }
+      )
+      .subscribe(res => this.activeModal.close(res), console.log);
   }
 }

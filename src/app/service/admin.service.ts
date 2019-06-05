@@ -7,91 +7,69 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class AdminService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   getAllAuthors(query) {
     return this.http.get(
-      environment.api_endpoint +
-        environment.get_all_authors
+      environment.api_endpoint + environment.get_all_authors
     );
   }
   getAllPublishers(query) {
     return this.http.get(
-      environment.api_endpoint +
-        environment.get_all_publishers
+      environment.api_endpoint + environment.get_all_publishers
     );
   }
 
-  createPublisher(name, address, phone){
+  createPublisher(name, address, phone) {
     return this.http.post(
-      environment.api_endpoint + 
-        environment.get_publisher,
-        {
-          name: name,
-          address: address,
-          phone: phone
-        }
+      environment.api_endpoint + environment.get_publisher,
+      {
+        name: name,
+        address: address,
+        phone: phone
+      }
     );
   }
 
   deletePublisher(id) {
     return this.http.delete(
-      environment.api_endpoint +
-        environment.get_publisher +
-        id
+      environment.api_endpoint + environment.get_publisher + id
     );
   }
 
   updatePublisher(id, name, address, phone) {
     return this.http.put(
-      environment.api_endpoint +
-        environment.get_publisher +
-        id,
-        {
-          name: name,
-          address: address,
-          phone: phone
-        }
+      environment.api_endpoint + environment.get_publisher + id,
+      {
+        name: name,
+        address: address,
+        phone: phone
+      }
     );
   }
 
   getAllBooks(query) {
-    return this.http.get(
-      environment.api_endpoint +
-        environment.get_all_books
-    );
+    return this.http.get(environment.api_endpoint + environment.get_all_books);
   }
 
-  createBook(title, author, publisher){
-    return this.http.post(
-      environment.api_endpoint + 
-        environment.get_book,
-        {
-          title: title,
-          author: author,
-          publisher: publisher
-        }
-    );
+  createBook(title, author, publisher) {
+    return this.http.post(environment.api_endpoint + environment.get_book, {
+      title: title,
+      author: author,
+      publisher: publisher
+    });
   }
 
   deleteBook(id) {
     return this.http.delete(
-      environment.api_endpoint +
-        environment.get_book +
-        id
+      environment.api_endpoint + environment.get_book + id
     );
   }
 
   updateBook(id, title, author, publisher) {
-    return this.http.put(
-      environment.api_endpoint +
-        environment.get_book +
-        id,
-        {
-          title: title,
-          author: author,
-          publisher: publisher
-        }
-    );
+    return this.http.put(environment.api_endpoint + environment.get_book + id, {
+      title: title,
+      author: author,
+      publisher: publisher
+    });
   }
 }

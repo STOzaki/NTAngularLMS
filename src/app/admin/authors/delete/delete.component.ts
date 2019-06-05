@@ -9,21 +9,25 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./delete.component.css']
 })
 export class AuthorDeleteComponent implements OnInit {
-
-  constructor(private http: HttpClient, public activeModal: NgbActiveModal) { }
+  constructor(private http: HttpClient, public activeModal: NgbActiveModal) {}
 
   @Input() currentAuthorId: number;
   @Input() currentAuthorName: string;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   closeModal() {
     this.activeModal.close('Delete Author modal closed');
   }
 
   applyDelete() {
-    return this.http.delete(environment.api_endpoint + environment.single_author + '/' +
-      this.currentAuthorId).subscribe((res) => this.activeModal.close(res), (err) => console.log(err));
+    return this.http
+      .delete(
+        environment.api_endpoint +
+          environment.single_author +
+          '/' +
+          this.currentAuthorId
+      )
+      .subscribe(res => this.activeModal.close(res), err => console.log(err));
   }
 }

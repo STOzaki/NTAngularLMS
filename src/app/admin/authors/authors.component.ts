@@ -12,8 +12,7 @@ import { AuthorDeleteComponent } from './delete/delete.component';
   styleUrls: ['./authors.component.css']
 })
 export class AuthorsComponent implements OnInit {
-
-  constructor(private http: HttpClient, private modalService: NgbModal) { }
+  constructor(private http: HttpClient, private modalService: NgbModal) {}
   authors: any;
 
   currentAuthor: any;
@@ -30,31 +29,38 @@ export class AuthorsComponent implements OnInit {
   }
 
   getAllAuthors() {
-    this.http.get(environment.api_endpoint + environment.get_all_authors).
-      subscribe(res => {
+    this.http
+      .get(environment.api_endpoint + environment.get_all_authors)
+      .subscribe(res => {
         this.authors = res;
       });
   }
 
   openAddModal() {
     const modalRef = this.modalService.open(NewAuthorComponent);
-    modalRef.result.then((res) => this.authors.push(res)).catch((err) => console.log(err));
+    modalRef.result
+      .then(res => this.authors.push(res))
+      .catch(err => console.log(err));
   }
   openModal(content) {
     this.currentModal = this.modalService.open(content);
   }
 
-  showEditForm(author: { id: number; name: string; }) {
+  showEditForm(author: { id: number; name: string }) {
     const modalRef = this.modalService.open(AuthorEditComponent);
     modalRef.componentInstance.currentAuthorId = author.id;
     modalRef.componentInstance.currentAuthorName = author.name;
-    modalRef.result.then((res) => author.name = res.name).catch((err) => console.log(err));
+    modalRef.result
+      .then(res => (author.name = res.name))
+      .catch(err => console.log(err));
   }
 
-  confirmDelete(author: { id: number; name: string; }) {
+  confirmDelete(author: { id: number; name: string }) {
     const modalRef = this.modalService.open(AuthorDeleteComponent);
     modalRef.componentInstance.currentAuthorId = author.id;
     modalRef.componentInstance.currentAuthorName = author.name;
-    modalRef.result.then((_) => this.getAllAuthors()).catch((err) => console.log(err));
+    modalRef.result
+      .then(_ => this.getAllAuthors())
+      .catch(err => console.log(err));
   }
 }

@@ -9,14 +9,12 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./edit.component.css']
 })
 export class AuthorEditComponent implements OnInit {
-
   constructor(private http: HttpClient, public activeModal: NgbActiveModal) {}
 
   @Input() currentAuthorId: number;
   @Input() currentAuthorName: string;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   closeModal() {
     this.activeModal.close('Edit Author modal closed');
@@ -27,9 +25,15 @@ export class AuthorEditComponent implements OnInit {
       // TODO: show error in form
       return false;
     }
-    return this.http.put(environment.api_endpoint + environment.single_author + '/' + this.currentAuthorId,
-      JSON.stringify({ name: this.currentAuthorName }),
-      { headers: { 'Content-Type': 'application/json'}}).subscribe((res) => this.activeModal.close(res),
-        (err) => console.log(err));
+    return this.http
+      .put(
+        environment.api_endpoint +
+          environment.single_author +
+          '/' +
+          this.currentAuthorId,
+        JSON.stringify({ name: this.currentAuthorName }),
+        { headers: { 'Content-Type': 'application/json' } }
+      )
+      .subscribe(res => this.activeModal.close(res), err => console.log(err));
   }
 }

@@ -9,15 +9,13 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./new.component.css']
 })
 export class NewAuthorComponent implements OnInit {
-
   constructor(private http: HttpClient, public activeModal: NgbActiveModal) {
     this.currentAuthorName = '';
   }
 
   currentAuthorName: string;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   closeModal() {
     this.activeModal.close('New Author modal closed');
@@ -28,9 +26,12 @@ export class NewAuthorComponent implements OnInit {
       // TODO: show error in form
       return false;
     }
-    return this.http.post(environment.api_endpoint + environment.single_author,
-      {name: this.currentAuthorName},
-      {headers: {'Content-Type': 'application/json'}}).subscribe((res) =>
-        this.activeModal.close(res), (err) => console.log(err));
+    return this.http
+      .post(
+        environment.api_endpoint + environment.single_author,
+        { name: this.currentAuthorName },
+        { headers: { 'Content-Type': 'application/json' } }
+      )
+      .subscribe(res => this.activeModal.close(res), err => console.log(err));
   }
 }

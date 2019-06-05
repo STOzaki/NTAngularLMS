@@ -9,7 +9,6 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./edit.component.css']
 })
 export class BranchEditComponent implements OnInit {
-
   constructor(private http: HttpClient, public activeModal: NgbActiveModal) {}
 
   @Input() branchId: number;
@@ -26,9 +25,15 @@ export class BranchEditComponent implements OnInit {
     if (!this.branchName || !this.branchAddress) {
       return false;
     }
-    return this.http.put(environment.api_endpoint + environment.single_branch + '/' + this.branchId,
-      JSON.stringify({ name: this.branchName, address: this.branchAddress }),
-      { headers: { 'Content-Type': 'application/json'}}).subscribe((res) => this.activeModal.close(res),
-        console.log);
+    return this.http
+      .put(
+        environment.api_endpoint +
+          environment.single_branch +
+          '/' +
+          this.branchId,
+        JSON.stringify({ name: this.branchName, address: this.branchAddress }),
+        { headers: { 'Content-Type': 'application/json' } }
+      )
+      .subscribe(res => this.activeModal.close(res), console.log);
   }
 }

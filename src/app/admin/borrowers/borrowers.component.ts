@@ -9,10 +9,10 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./borrowers.component.css']
 })
 export class BorrowersComponent implements OnInit {
-
   constructor(
     private adminService: AdminService,
-    private modalService: NgbModal) { }
+    private modalService: NgbModal
+  ) {}
 
   borrowers: any;
 
@@ -32,48 +32,69 @@ export class BorrowersComponent implements OnInit {
 
   getAllBorrowers() {
     // console.log('attempting to get all borrowers');
-    this.adminService.getAllBorrowers().subscribe(res => {
-      // console.log('Got all borrowers');
-      this.borrowers = res;
-    }, error => console.log(error));
+    this.adminService.getAllBorrowers().subscribe(
+      res => {
+        // console.log('Got all borrowers');
+        this.borrowers = res;
+      },
+      error => console.log(error)
+    );
   }
 
   deleteBorrower(id) {
-    this.adminService.deleteBorrower(id).subscribe(res => {
-      // console.log('Successfully deleted!');
-      this.adminService.getAllBorrowers().subscribe(getRes => {
-        // console.log('updated Borrower Table Successfully!');
-        this.borrowers = getRes;
-      }, error => console.log(error));
-    }, error => console.log(error));
+    this.adminService.deleteBorrower(id).subscribe(
+      res => {
+        // console.log('Successfully deleted!');
+        this.adminService.getAllBorrowers().subscribe(
+          getRes => {
+            // console.log('updated Borrower Table Successfully!');
+            this.borrowers = getRes;
+          },
+          error => console.log(error)
+        );
+      },
+      error => console.log(error)
+    );
   }
 
   createBorrower() {
     // console.log('In the process of creating a new borrower');
-    this.adminService.createBorrower(this.newBorrower).subscribe(res => {
-      // console.log('Successfully created a Borrower');
-      this.adminService.getAllBorrowers().subscribe(getRes => {
-        // console.log('updated Borrower Table Successfully!');
-        this.borrowers = getRes;
-        // reset the borrower form
-        this.newBorrower = new Borrower(0, '', '', '');
-        // also close modal
-        this.modalReference.close();
-      }, error => console.log(error));
-    }, error => console.log(error));
+    this.adminService.createBorrower(this.newBorrower).subscribe(
+      res => {
+        // console.log('Successfully created a Borrower');
+        this.adminService.getAllBorrowers().subscribe(
+          getRes => {
+            // console.log('updated Borrower Table Successfully!');
+            this.borrowers = getRes;
+            // reset the borrower form
+            this.newBorrower = new Borrower(0, '', '', '');
+            // also close modal
+            this.modalReference.close();
+          },
+          error => console.log(error)
+        );
+      },
+      error => console.log(error)
+    );
   }
 
   updateBorrower() {
     // console.log('Updating ' + this.editBorrower.name);
-    this.adminService.updateBorrower(this.editBorrower).subscribe(res => {
-      // console.log('Successfully updated a borrower');
-      this.adminService.getAllBorrowers().subscribe(getRes => {
-        // console.log('Refresh borrower table');
-        this.borrowers = getRes;
-        // also close modal
-        this.modalReference.close();
-      }, error => console.log(error));
-    }, error => console.log(error));
+    this.adminService.updateBorrower(this.editBorrower).subscribe(
+      res => {
+        // console.log('Successfully updated a borrower');
+        this.adminService.getAllBorrowers().subscribe(
+          getRes => {
+            // console.log('Refresh borrower table');
+            this.borrowers = getRes;
+            // also close modal
+            this.modalReference.close();
+          },
+          error => console.log(error)
+        );
+      },
+      error => console.log(error)
+    );
   }
 
   resetBorrower() {
@@ -106,8 +127,12 @@ export class BorrowersComponent implements OnInit {
 
   editModal(content, selectedBorrower) {
     // console.log('starting edit modal');
-    this.editBorrower = new Borrower(selectedBorrower.cardNo, selectedBorrower.name,
-      selectedBorrower.address, selectedBorrower.phone);
+    this.editBorrower = new Borrower(
+      selectedBorrower.cardNo,
+      selectedBorrower.name,
+      selectedBorrower.address,
+      selectedBorrower.phone
+    );
     this.modalReference = this.modalService.open(content);
     this.modalReference.result.then(
       result => {

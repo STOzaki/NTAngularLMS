@@ -7,8 +7,7 @@ import { AdminService } from '../../../services/admin.service';
   styleUrls: ['./borrowers-loan.component.css']
 })
 export class BorrowersLoanComponent implements OnInit {
-
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService) {}
 
   borrowers: any;
 
@@ -18,10 +17,12 @@ export class BorrowersLoanComponent implements OnInit {
 
   getAllBorrowersWithLoans() {
     // console.log('attempting to get all borrowers');
-    this.adminService.getAllBorrowers().subscribe(res => {
-      // console.log('Got all borrowers');
-      this.borrowers = res;
-    }, error => console.log(error));
+    this.adminService.getAllBorrowers().subscribe(
+      res => {
+        // console.log('Got all borrowers');
+        this.borrowers = res;
+      },
+      error => console.log(error)
+    );
   }
-
 }

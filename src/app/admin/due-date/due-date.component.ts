@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./due-date.component.css']
 })
 export class DueDateComponent implements OnInit {
-
   constructor(
     private adminService: AdminService,
     private modalService: NgbModal,
-    private router: Router) { }
+    private router: Router
+  ) {}
 
   loans: any;
 
@@ -48,10 +48,13 @@ export class DueDateComponent implements OnInit {
 
   getAllLoansForBorrower() {
     // console.log('attempting to get all loans');
-    this.adminService.getAllLoans(this.cardNo).subscribe(res => {
-      // console.log('Got all loans');
-      this.loans = res;
-    }, error => console.log(error));
+    this.adminService.getAllLoans(this.cardNo).subscribe(
+      res => {
+        // console.log('Got all loans');
+        this.loans = res;
+      },
+      error => console.log(error)
+    );
   }
 
   updateLoan() {
@@ -60,15 +63,23 @@ export class DueDateComponent implements OnInit {
     const branchId = this.editLoan.branch.id;
     const cardNo = this.editLoan.borrower.cardNo;
     const overrideDate = this.editLoan.dueDate;
-    this.adminService.updateLoan(bookId, branchId, cardNo, overrideDate).subscribe(res => {
-      // console.log('Successfully updated a borrower');
-      this.adminService.getAllLoans(cardNo).subscribe(getRes => {
-        // console.log('Refresh borrower table');
-        this.loans = getRes;
-        // also close modal
-        this.modalReference.close();
-      }, error => console.log(error));
-    }, error => console.log(error));
+    this.adminService
+      .updateLoan(bookId, branchId, cardNo, overrideDate)
+      .subscribe(
+        res => {
+          // console.log('Successfully updated a borrower');
+          this.adminService.getAllLoans(cardNo).subscribe(
+            getRes => {
+              // console.log('Refresh borrower table');
+              this.loans = getRes;
+              // also close modal
+              this.modalReference.close();
+            },
+            error => console.log(error)
+          );
+        },
+        error => console.log(error)
+      );
   }
 
   editModal(content, selectedLoan) {

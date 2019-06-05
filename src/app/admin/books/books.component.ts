@@ -10,64 +10,68 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
-
   constructor(
     private http: HttpClient,
     private pagerService: PagerService,
     private adminService: AdminService,
-    private modalService: NgbModal) {this.books=[]; }
-    books:any;
-    authors:any;
-    publishers:any;
-    authorsSize = 1;
-    booksSize = 1;
-    publishersSize = 1;
-    pager: any={};
-    pagedItems: any[];
-    private modalReference: NgbModalRef;
-    errorMsg: string = '';
-    private closeResult: any;
+    private modalService: NgbModal
+  ) {
+    this.books = [];
+  }
+  books: any;
+  authors: any;
+  publishers: any;
+  authorsSize = 1;
+  booksSize = 1;
+  publishersSize = 1;
+  pager: any = {};
+  pagedItems: any[];
+  private modalReference: NgbModalRef;
+  errorMsg: string = '';
+  private closeResult: any;
 
-    book = {
-      id:'',
-      title:'',
-      author:{
-        id:'',
-        name:''},
-      publisher:{
-        id:'',
-        name:'',
-        address:'',
-        phone:''}
-    };
-
-    editBook = {
-      id:'',
-      title:'',
-      author:{
-        id:'',
-        name:''},
-      publisher:{
-        id:'',
-        name:'',
-        address:'',
-        phone:''}
-    };
-
-    publisher = {
+  book = {
+    id: '',
+    title: '',
+    author: {
+      id: '',
+      name: ''
+    },
+    publisher: {
       id: '',
       name: '',
       address: '',
       phone: ''
-    };
-
-    author = {
-      id:'',
-      name:''
     }
-    test:any;
+  };
 
+  editBook = {
+    id: '',
+    title: '',
+    author: {
+      id: '',
+      name: ''
+    },
+    publisher: {
+      id: '',
+      name: '',
+      address: '',
+      phone: ''
+    }
+  };
 
+  publisher = {
+    id: '',
+    name: '',
+    address: '',
+    phone: ''
+  };
+
+  author = {
+    id: '',
+    name: ''
+  };
+  test: any;
 
   ngOnInit() {
     this.getAllBooks();
@@ -76,7 +80,7 @@ export class BooksComponent implements OnInit {
     this.setPage(1);
   }
 
-  getAllBooks(){
+  getAllBooks() {
     this.adminService.getAllBooks('').subscribe(res => {
       this.books = res;
       this.booksSize = this.books.length;
@@ -84,14 +88,14 @@ export class BooksComponent implements OnInit {
     });
   }
 
-  getAllPublishers(){
+  getAllPublishers() {
     this.adminService.getAllPublishers('').subscribe(res => {
       this.publishers = res;
       this.publishersSize = this.publishers.length;
     });
   }
 
-  getAllAuthors(){
+  getAllAuthors() {
     this.adminService.getAllAuthors('').subscribe(res => {
       this.authors = res;
       this.authorsSize = this.authors.length;
@@ -100,29 +104,38 @@ export class BooksComponent implements OnInit {
 
   deleteBook(id) {
     this.adminService.deleteBook(id).subscribe(res => {
-      this.books = this.books.filter(it=>it.id!=id);
+      this.books = this.books.filter(it => it.id != id);
       this.booksSize = this.books.length;
       this.setPage(1);
     });
   }
 
   createBook() {
-    this.adminService.createBook(this.book.title, this.book.author, this.book.publisher).subscribe(res=>{
-      this.books.push(res);
-      this.booksSize = this.books.length;
-      this.setPage(1);
-    });
+    this.adminService
+      .createBook(this.book.title, this.book.author, this.book.publisher)
+      .subscribe(res => {
+        this.books.push(res);
+        this.booksSize = this.books.length;
+        this.setPage(1);
+      });
     this.modalReference.close();
   }
-  
+
   updateBook() {
-    this.adminService.updateBook(this.editBook.id, this.editBook.title, this.editBook.author, this.editBook.publisher).subscribe(res=>{
-      var index = this.books.findIndex(it=>it.id==this.editBook.id);
-      this.books[index].title = this.book.title;
-      this.books[index].author = this.book.author;
-      this.books[index].publisher = this.book.publisher;
-      this.setPage(1);
-    })
+    this.adminService
+      .updateBook(
+        this.editBook.id,
+        this.editBook.title,
+        this.editBook.author,
+        this.editBook.publisher
+      )
+      .subscribe(res => {
+        var index = this.books.findIndex(it => it.id == this.editBook.id);
+        this.books[index].title = this.book.title;
+        this.books[index].author = this.book.author;
+        this.books[index].publisher = this.book.publisher;
+        this.setPage(1);
+      });
     this.modalReference.close();
   }
   setPage(page: number) {
@@ -145,7 +158,7 @@ export class BooksComponent implements OnInit {
       }
     );
   }
-  edit(content, book){
+  edit(content, book) {
     this.editBook = {
       id: book.id,
       title: book.title,
@@ -164,7 +177,7 @@ export class BooksComponent implements OnInit {
       }
     );
   }
-  close(content){
+  close(content) {
     this.modalReference.close();
   }
 }

@@ -107,4 +107,4 @@ import { PagerService } from './service/pager.service';
   providers: [PagerService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

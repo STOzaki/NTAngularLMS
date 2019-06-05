@@ -3,5 +3,6 @@ export class Borrower {
     public cardNo: number,
     public name: string,
     public address: string,
-    public phone: string) { }
+    public phone: string
+  ) {}
 }

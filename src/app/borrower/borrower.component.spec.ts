@@ -8,9 +8,8 @@ describe('BorrowerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BorrowerComponent ]
-    })
-    .compileComponents();
+      declarations: [BorrowerComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

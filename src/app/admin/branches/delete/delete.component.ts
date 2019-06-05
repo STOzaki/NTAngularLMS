@@ -9,21 +9,25 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./delete.component.css']
 })
 export class BranchDeleteComponent implements OnInit {
-
-  constructor(private http: HttpClient, public activeModal: NgbActiveModal) { }
+  constructor(private http: HttpClient, public activeModal: NgbActiveModal) {}
 
   @Input() branchId: number;
   @Input() branchName: string;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   closeModal() {
     this.activeModal.close('Delete Branch modal closed');
   }
 
   applyDelete() {
-    return this.http.delete(environment.api_endpoint + environment.single_branch + '/' +
-      this.branchId).subscribe((res) => this.activeModal.close(res), console.log);
+    return this.http
+      .delete(
+        environment.api_endpoint +
+          environment.single_branch +
+          '/' +
+          this.branchId
+      )
+      .subscribe(res => this.activeModal.close(res), console.log);
   }
 }

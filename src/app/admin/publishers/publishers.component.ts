@@ -5,7 +5,6 @@ import { PagerService } from '../../service/pager.service';
 import { AdminService } from '../../service/admin.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
   selector: 'app-publishers',
   templateUrl: './publishers.component.html',
@@ -17,35 +16,37 @@ export class PublishersComponent implements OnInit {
     private pagerService: PagerService,
     private adminService: AdminService,
     private modalService: NgbModal
-    ) {this.publishers=[]; }
-    publishers:any;
-    publishersSize = 1;
-    private allItems: any[];
-    pager: any={};
-    pagedItems: any[];
-    private modalReference: NgbModalRef;
-    errorMsg: string = '';
-    private closeResult: any;
+  ) {
+    this.publishers = [];
+  }
+  publishers: any;
+  publishersSize = 1;
+  private allItems: any[];
+  pager: any = {};
+  pagedItems: any[];
+  private modalReference: NgbModalRef;
+  errorMsg: string = '';
+  private closeResult: any;
 
-    publisher = {
-      id: '',
-      name: '',
-      address: '',
-      phone: ''
-    };
+  publisher = {
+    id: '',
+    name: '',
+    address: '',
+    phone: ''
+  };
 
-    editPublisher ={
-      id: '',
-      name: '',
-      address: '',
-      phone: ''
-    };
+  editPublisher = {
+    id: '',
+    name: '',
+    address: '',
+    phone: ''
+  };
 
   ngOnInit() {
     this.getAllPublishers();
   }
 
-  getAllPublishers(){
+  getAllPublishers() {
     this.adminService.getAllPublishers('').subscribe(res => {
       this.publishers = res;
       this.publishersSize = this.publishers.length;
@@ -63,29 +64,44 @@ export class PublishersComponent implements OnInit {
 
   deletePublisher(id) {
     this.adminService.deletePublisher(id).subscribe(res => {
-      this.publishers = this.publishers.filter(it=>it.id!=id);
+      this.publishers = this.publishers.filter(it => it.id != id);
       this.publishersSize = this.publishers.length;
       this.setPage(1);
     });
   }
 
   createPublisher() {
-    this.adminService.createPublisher(this.publisher.name, this.publisher.address, this.publisher.phone).subscribe(res=>{
-      this.publishers.push(res);
-      this.publishersSize = this.publishers.length;
-      this.setPage(1);
-    });
+    this.adminService
+      .createPublisher(
+        this.publisher.name,
+        this.publisher.address,
+        this.publisher.phone
+      )
+      .subscribe(res => {
+        this.publishers.push(res);
+        this.publishersSize = this.publishers.length;
+        this.setPage(1);
+      });
     this.modalReference.close();
   }
-  
+
   updatePublisher() {
-    this.adminService.updatePublisher(this.editPublisher.id, this.editPublisher.name, this.editPublisher.address, this.editPublisher.phone).subscribe(res=>{
-      var index = this.publishers.findIndex(it=>it.id==this.editPublisher.id);
-      this.publishers[index].name = this.editPublisher.name;
-      this.publishers[index].address = this.editPublisher.address;
-      this.publishers[index].phone = this.editPublisher.phone;
-      this.setPage(1);
-    })
+    this.adminService
+      .updatePublisher(
+        this.editPublisher.id,
+        this.editPublisher.name,
+        this.editPublisher.address,
+        this.editPublisher.phone
+      )
+      .subscribe(res => {
+        var index = this.publishers.findIndex(
+          it => it.id == this.editPublisher.id
+        );
+        this.publishers[index].name = this.editPublisher.name;
+        this.publishers[index].address = this.editPublisher.address;
+        this.publishers[index].phone = this.editPublisher.phone;
+        this.setPage(1);
+      });
     this.modalReference.close();
   }
   setPage(page: number) {
@@ -108,7 +124,7 @@ export class PublishersComponent implements OnInit {
       }
     );
   }
-  edit(content, publisher){
+  edit(content, publisher) {
     this.editPublisher = {
       id: publisher.id,
       name: publisher.name,
@@ -127,7 +143,7 @@ export class PublishersComponent implements OnInit {
       }
     );
   }
-  close(content){
+  close(content) {
     this.modalReference.close();
   }
 }

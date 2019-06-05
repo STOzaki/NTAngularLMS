@@ -10,13 +10,13 @@ import { BorrowersComponent } from './admin/borrowers/borrowers.component';
 import { DueDateComponent } from './admin/due-date/due-date.component';
 import { BorrowersLoanComponent } from './admin/due-date/borrowers-loan/borrowers-loan.component';
 import { AuthorsComponent } from './admin/authors/authors.component';
-import { BranchesComponent} from './admin/branches/branches.component';
+import { BranchesComponent } from './admin/branches/branches.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: HomepageComponent,
-    children:[]
+    children: []
   },
   {
     path: 'admin',
@@ -53,15 +53,9 @@ const routes: Routes = [
     ]
   }
 ];
-  
-  
-    
-
-  
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
