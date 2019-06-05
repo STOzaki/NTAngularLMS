@@ -4,8 +4,6 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AdminComponent } from './admin/admin.component';
 import { PublishersComponent } from './admin/publishers/publishers.component';
 import { BooksComponent } from './admin/books/books.component';
-import { fromEventPattern } from 'rxjs';
-import { LayoutComponent } from './admin/layout/layout.component';
 import { BorrowersComponent } from './admin/borrowers/borrowers.component';
 import { DueDateComponent } from './admin/due-date/due-date.component';
 import { BorrowersLoanComponent } from './admin/due-date/borrowers-loan/borrowers-loan.component';

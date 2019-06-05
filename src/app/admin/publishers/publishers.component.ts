@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
 import { PagerService } from '../../service/pager.service';
 import { AdminService } from '../../service/admin.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
