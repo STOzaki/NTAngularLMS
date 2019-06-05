@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'borrower-app-layout',
+  selector: 'app-borrower-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })

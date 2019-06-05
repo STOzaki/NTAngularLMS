@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'librarian-app-branches',
+  selector: 'app-librarian-branches',
   templateUrl: './branches.component.html',
   styleUrls: ['./branches.component.css']
 })

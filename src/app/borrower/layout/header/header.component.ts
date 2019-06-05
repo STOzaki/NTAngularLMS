@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'borrower-app-header',
+  selector: 'app-borrower-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })

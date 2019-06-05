@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'librarian-app-layout',
+  selector: 'app-librarian-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })

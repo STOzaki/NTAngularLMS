@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'borrower-app-branches',
+  selector: 'app-borrower-branches',
   templateUrl: './branches.component.html',
   styleUrls: ['./branches.component.css']
 })
