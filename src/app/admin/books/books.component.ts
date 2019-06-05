@@ -27,7 +27,7 @@ export class BooksComponent implements OnInit {
   pager: any = {};
   pagedItems: any[];
   private modalReference: NgbModalRef;
-  errorMsg: string = '';
+  errorMsg = '';
   private closeResult: any;
 
   book = {

@@ -25,7 +25,7 @@ export class PublishersComponent implements OnInit {
   pager: any = {};
   pagedItems: any[];
   private modalReference: NgbModalRef;
-  errorMsg: string = '';
+  errorMsg = '';
   private closeResult: any;
 
   publisher = {
