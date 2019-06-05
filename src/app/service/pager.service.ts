@@ -10,8 +10,8 @@ export class PagerService {
       currentPage = totalPages;
     }
 
-    const startPage: number;
-    const endPage: number;
+    let startPage: number;
+    let endPage: number;
     if (totalPages <= 10) {
       // less than 10 total pages so show all
       startPage = 1;
