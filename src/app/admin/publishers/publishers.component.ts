@@ -94,7 +94,7 @@ export class PublishersComponent implements OnInit {
         this.editPublisher.phone
       )
       .subscribe(res => {
-        var index = this.publishers.findIndex(
+        const index = this.publishers.findIndex(
           it => it.id === this.editPublisher.id
         );
         this.publishers[index].name = this.editPublisher.name;

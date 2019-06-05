@@ -130,7 +130,7 @@ export class BooksComponent implements OnInit {
         this.editBook.publisher
       )
       .subscribe(res => {
-        var index = this.books.findIndex(it => it.id === this.editBook.id);
+        const index = this.books.findIndex(it => it.id === this.editBook.id);
         this.books[index].title = this.book.title;
         this.books[index].author = this.book.author;
         this.books[index].publisher = this.book.publisher;
