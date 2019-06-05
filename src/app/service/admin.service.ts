@@ -23,9 +23,7 @@ export class AdminService {
     return this.http.post(
       environment.api_endpoint + environment.get_publisher,
       {
-        name: name,
-        address: address,
-        phone: phone
+        name, address, phone
       }
     );
   }
@@ -40,9 +38,7 @@ export class AdminService {
     return this.http.put(
       environment.api_endpoint + environment.get_publisher + id,
       {
-        name: name,
-        address: address,
-        phone: phone
+        name, address, phone
       }
     );
   }
@@ -53,9 +49,7 @@ export class AdminService {
 
   createBook(title, author, publisher) {
     return this.http.post(environment.api_endpoint + environment.get_book, {
-      title: title,
-      author: author,
-      publisher: publisher
+      title, author, publisher
     });
   }
 
@@ -67,9 +61,7 @@ export class AdminService {
 
   updateBook(id, title, author, publisher) {
     return this.http.put(environment.api_endpoint + environment.get_book + id, {
-      title: title,
-      author: author,
-      publisher: publisher
+      title, author, publisher
     });
   }
 }
