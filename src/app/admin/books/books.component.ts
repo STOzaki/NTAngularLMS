@@ -104,7 +104,7 @@ export class BooksComponent implements OnInit {
 
   deleteBook(id) {
     this.adminService.deleteBook(id).subscribe(res => {
-      this.books = this.books.filter(it => it.id != id);
+      this.books = this.books.filter(it => it.id !== id);
       this.booksSize = this.books.length;
       this.setPage(1);
     });
@@ -130,7 +130,7 @@ export class BooksComponent implements OnInit {
         this.editBook.publisher
       )
       .subscribe(res => {
-        var index = this.books.findIndex(it => it.id == this.editBook.id);
+        var index = this.books.findIndex(it => it.id === this.editBook.id);
         this.books[index].title = this.book.title;
         this.books[index].author = this.book.author;
         this.books[index].publisher = this.book.publisher;

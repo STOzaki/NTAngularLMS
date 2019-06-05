@@ -64,7 +64,7 @@ export class PublishersComponent implements OnInit {
 
   deletePublisher(id) {
     this.adminService.deletePublisher(id).subscribe(res => {
-      this.publishers = this.publishers.filter(it => it.id != id);
+      this.publishers = this.publishers.filter(it => it.id !== id);
       this.publishersSize = this.publishers.length;
       this.setPage(1);
     });
@@ -95,7 +95,7 @@ export class PublishersComponent implements OnInit {
       )
       .subscribe(res => {
         var index = this.publishers.findIndex(
-          it => it.id == this.editPublisher.id
+          it => it.id === this.editPublisher.id
         );
         this.publishers[index].name = this.editPublisher.name;
         this.publishers[index].address = this.editPublisher.address;
